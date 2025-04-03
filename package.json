@@ -1,0 +1,22 @@
+{
+  "name": "playwright_learning_valouch_playwright_jaro2025",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wykrycek/playwright_learning_valouch_playwright_jaro2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wykrycek/playwright_learning_valouch_playwright_jaro2025/issues"
+  },
+  "homepage": "https://github.com/wykrycek/playwright_learning_valouch_playwright_jaro2025#readme",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.51.1",
+    "@types/node": "^22.13.14"
+  }
+}
