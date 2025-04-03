@@ -14,5 +14,7 @@ test('#1 challenge', async ({ page }) => {
     await page.goto('https://automationteststore.com/index.php?rt=account/create');
     await page.locator('#AccountFrm_firstname').fill('Petr');
     await page.locator('#AccountFrm_lastname').fill('Valouch');
-    await page.locator('.btn').click();
+
+    // class btn && text Continue
+    await page.locator('button:has-text("Continue")').click();
 });
