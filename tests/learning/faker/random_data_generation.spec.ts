@@ -4,6 +4,7 @@ import { test } from "@playwright/test";
 import { faker } from '@faker-js/faker';
 
 test("Testing data generation by Faker", async ({ page }) => {
+    await page.goto("/");
     // vygenerovat Jméno, Příjmení, uživatelské jméno, heslo, e-mailovou adresu z jména a přijmení
     const firstName = faker.person.firstName();
     const lastName = faker.person.lastName();
