@@ -1,5 +1,5 @@
 /*
-Vytvoř nový test na Automation Test Store:  https://automationteststore.com/ 
+Vytvoř nový test na Automation Test Store: https://automationteststore.com/
 
 Složka: tests/challenges
 Soubor: navigation_challenge.spec.ts
