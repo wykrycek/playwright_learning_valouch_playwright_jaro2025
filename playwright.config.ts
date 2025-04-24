@@ -23,14 +23,32 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  // reporter: [['html', { open: 'on-failure' }], ['junit', { outputFile: 'test-results.xml' }]],
+  
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://127.0.0.1:3000',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+
+    actionTimeout: 10 * 1000, // Timeout běhu akcí (click, ...)
+    navigationTimeout: 30 * 1000, // Timeout navigace prohlížeče
+
+    // ignoreHTTPSErrors: true,
+
+    screenshot: "only-on-failure",
+    video: "retain-on-failure",
+
+    // locale: "cs-CZ",
   },
+
+  expect: {
+    timeout: 10 * 1000, // Timeout assertů
+  },
+
+  timeout: 5 * 60 * 1000, // Timeout pro cělý běh testu
 
   /* Configure projects for major browsers */
   projects: [
@@ -48,6 +66,21 @@ export default defineConfig({
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
     },
+
+    /* Vlastní projekt s definovaným rozlišením a dalšém nastavením */
+    /*
+    {
+      name: 'Chrome 420x320',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: { width: 420, height: 320 },
+        baseURL: 'https://playwright.dev',
+        ignoreHTTPSErrors: true,
+        screenshot: "only-on-failure",
+        video: "retain-on-failure",
+       },
+    },
+    */
 
     /* Test against mobile viewports. */
     // {
