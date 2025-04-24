@@ -1,7 +1,7 @@
 //login_page.ts
 // src/pages/pmtool
 
-import { type Locator, type Page } from "@playwright/test";
+import { type Locator, type Page, expect } from "@playwright/test";
 import { DashboardPage } from "./dashboard_page.ts";
 import { LostPasswordPage } from "./lost_password_page.ts";
 
@@ -13,6 +13,7 @@ export class LoginPage {
     private readonly passwordInput: Locator;
     private readonly loginButton: Locator;
     private readonly lostPasswordAnchor: Locator;
+    private readonly pageHeader: Locator;
 
     // 2. Constructor, ve kterém nastavíme jednotlivé lokátory
     constructor(page: Page) {
@@ -21,6 +22,7 @@ export class LoginPage {
         this.passwordInput = page.locator("#password");
         this.loginButton = page.locator(".btn");
         this.lostPasswordAnchor = page.locator("#forget_password");
+        this.pageHeader = page.locator("h3.form-title");
     }
 
     // 3. Ovládací metody
@@ -50,6 +52,11 @@ export class LoginPage {
 
     async openPmtool(): Promise<LoginPage> {
         await this.page.goto(this.url);
+        return this;
+    }
+
+    async pageHeaderHasText(headerText: string): Promise<LoginPage> {
+        await expect(this.pageHeader).toHaveText(headerText);
         return this;
     }
 
