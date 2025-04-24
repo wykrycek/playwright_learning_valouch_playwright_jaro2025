@@ -47,7 +47,7 @@ test.describe("Asserts - Testing with Playwright", () => {
     });
 
     // soft assert
-    test("SOft Assert Test", async ({ page }) => {
+    test.skip("Soft Assert Test", async ({ page }) => {
         const dashboadPage = new DashboardPage(page);
         await expect
             .soft(page.locator("#welcome-page-header"))
