@@ -1,7 +1,7 @@
 //login_page.ts
 // src/pages/pmtool
 
-import { type Locator, type Page, expect } from "@playwright/test";
+import { test, type Locator, type Page, expect } from "@playwright/test";
 import { DashboardPage } from "./dashboard_page.ts";
 import { LostPasswordPage } from "./lost_password_page.ts";
 
@@ -69,4 +69,15 @@ export class LoginPage {
         return new DashboardPage(this.page);
     }
 
+    async openAndLogin(username: string, password: string): Promise<DashboardPage> {
+        test.step("Otevření Pmtool", async () => {
+            await this.openPmtool();
+        });
+
+        test.step("Přihlášení do Pmtool", async () => {
+            await this.login(username, password);
+        });
+
+        return new DashboardPage(this.page);
+    }
 }
