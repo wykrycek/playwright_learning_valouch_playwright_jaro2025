@@ -38,7 +38,7 @@ export default defineConfig({
 
     // ignoreHTTPSErrors: true,
 
-    screenshot: "only-on-failure",
+    //screenshot: "only-on-failure",
     video: "retain-on-failure",
 
     // locale: "cs-CZ",
