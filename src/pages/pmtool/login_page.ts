@@ -60,6 +60,11 @@ export class LoginPage {
         return this;
     }
 
+    async appHeaderHasText(headerText: string): Promise<LoginPage> {
+        await expect.soft(this.pageHeader).toHaveText(headerText);
+        return this;
+    }
+
 
     // sdružující metoda
     async login(username: string, password: string): Promise<DashboardPage> {
