@@ -87,4 +87,19 @@ export class AddNewProjectModal {
     await this.closeButton.click();
     return new ProjectsPage(this.page);
   }
+
+  async selectPriority(priorityValue: string): Promise<AddNewProjectModal> {
+    await this.prioritySelect.selectOption(priorityValue);
+    return this;
+  }
+
+  async selectStatus(statusValue: string): Promise<AddNewProjectModal> {
+    await this.statusSelect.selectOption(statusValue);
+    return this;
+  }
+
+  async typeStartDate(startDateValue: string): Promise<AddNewProjectModal> {
+    await this.startDateInput.fill(startDateValue);
+    return this;
+  }
 }
