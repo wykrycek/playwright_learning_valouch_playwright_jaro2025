@@ -8,6 +8,11 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      PMTOOL_USERNAME: ${{ secrets.PMTOOL_USERNAME }}
+      PMTOOL_PASSWORD: ${{ secrets.PMTOOL_PASSWORD }}
+      TEGB_USER: ${{ secrets.TEGB_USER }}
+      TEGB_PASSWORD: ${{ secrets.TEGB_PASSWORD }}
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
